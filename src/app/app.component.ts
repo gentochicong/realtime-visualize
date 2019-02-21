@@ -13,7 +13,7 @@ export class AppComponent {
   arrayData = [];
   constructor(private http: HttpClient) {
     this.arrayData = [];
-    let apiURL = `https://54.161.120.145/apis/get-all-root`;
+    let apiURL = `http://54.161.120.145:9696/apis/get-all-root`;
     this.http.get(apiURL).toPromise().then(
         (res: CustomResponse) => {
          this.arrayData = res.data;
@@ -36,7 +36,7 @@ export class AppComponent {
     console.log('ind: ', indClick);
     if(itemClick.nodeType === 'node' && itemClick.clicked === false){
       this.arrayData[indClick].clicked = true;
-      let apiURL = `https://54.161.120.145/apis/get-child/${nodeId}`;
+      let apiURL = `http://54.161.120.145:9696/apis/get-child/${nodeId}`;
       this.http.get(apiURL).toPromise().then(
           (res: CustomResponse) => {
           console.log('res.data: ', res.data);

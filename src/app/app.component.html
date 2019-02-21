@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 style="color: #666699;">Visualization Realtime Data</h1>
+</div>
+<ul style="list-style-type: none;">
+  <li *ngFor="let node of arrayData">
+    <a (click)="clickNode(node.id)">
+      <label *ngFor="let ind of node.spaces">&#160;&#160;&#160;&#160;</label>
+      <img src="assets/line-32.png" width="16px" height="16px">
+      <img *ngIf="node.nodeType=='node'" src="assets/node-icon-32.png" width="13px" height="13px">
+      {{node.keyName}}<label *ngIf="node.nodeType=='leaf'">: </label>
+      <label style="font-style: italic; color: #993366;" *ngIf="node.nodeType=='leaf'">{{node.value}}</label>
+    </a>
+  </li>
+</ul>
+
+
